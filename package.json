@@ -1,1 +1,22 @@
-{}
+{
+  "name": "projet-5",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./front_end/scss/style.scss:./front_end/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elisacommunal/ElisaCommunal_5_07012021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elisacommunal/ElisaCommunal_5_07012021/issues"
+  },
+  "homepage": "https://github.com/Elisacommunal/ElisaCommunal_5_07012021#readme",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^4.6.0"
+  }
+}
