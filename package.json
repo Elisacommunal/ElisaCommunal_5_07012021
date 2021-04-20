@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./front_end/scss/style.scss:./front_end/css/style.css",
+    "sass": "sass --watch ./scss/style.scss:./css/style.css",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "webpack-dev-server"
   },
