@@ -15,13 +15,13 @@ parameter = "cardProduct1";
 function displayProduct(product, id_container) {
     let container = document.getElementById(id_container);
 
-    let template = `<div class="card" style="width: 18rem;">
+    let template = `<div class="card text-center">
                     <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
                     <div class="card-body">
                     <h5 class="card-title">${product.name}</h5>
                     <p class="card-text">${product.description}</p>
-                    <p class="card-text">${product.price}€</p>
-                    <a href="#" class="btn btn-primary">Ajouter au panier</a>
+                    <p class="card-text">${product.price} €</p>
+                    <a href="#" class="btn btn-dark">Ajouter au panier</a>
                     </div>
                 </div>`;
 
@@ -59,7 +59,20 @@ getData("5be1ed3f1c9d44000030b061")
 
 
 
+    getData("5be9c4471c9d440000a730e8")
+    .then(data => {
+        console.log(data);
+        displayProduct(data, "cardProduct4");
+    })
+    .catch(error => console.error(error))
 
+
+    getData("5be9c4c71c9d440000a730e9")
+    .then(data => {
+        console.log(data);
+        displayProduct(data, "cardProduct5");
+    })
+    .catch(error => console.error(error))
 /* container.innerHTML += '<div class="card" style="width: 18rem;"></div>' ;
         container.innerHTML += `<img src=${product.imageUrl} class="card-img-top" alt="${product.name}"></img>`;
         container.innerHTML += '<div class="card-body"></div>';

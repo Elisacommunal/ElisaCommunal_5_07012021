@@ -1,3 +1,24 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
-
+.bg-dark{
+    background-color: #000;
+}
+.card{
+    margin: 30px 5px;
+}
+.titre{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    margin: 20px;
+    & h1 {
+        font-size: 55px;
+        align-self: center;
+    }
+    
+}
+.fa-shopping-cart{
+    font-size: 45px;
+    padding: 15px 10px 0 0;
+}
