@@ -9928,5 +9928,9 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.ligne {
+  display: flex;
+  background-color: red;
+}
 
 /*# sourceMappingURL=style.css.map */
