@@ -1,13 +1,43 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
+$color-primary: #dd8109;
+$color-secondary: #8D42D6;
 
+main{
+    margin-bottom: 100px;
+}
+.ml-auto{
+    margin-left: auto !important;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
 .bg-dark{
     background-color: #000;
 }
+.white{
+    color: white;
+    font-size: 20px;
+    &:hover{
+        background:-webkit-linear-gradient(left,$color-primary 20%, $color-secondary 80%);
+        background-clip:text;
+        -webkit-background-clip:text;
+        color:transparent;
+    }
+}
+
 .card{
     margin: 30px 5px;
+    height: 500px;
+    &-img-top{
+        min-height: 158px;
+        height: auto;
+        object-position: center;
+    }
 }
-.titre{
-    
+.titre{ 
     display: flex;
     align-items: center;
     justify-content: center !important;
@@ -15,10 +45,14 @@
     & h1 {
         font-size: 55px;
         align-self: center;
-    }
-    
+        font-family: 'Finger Paint', cursive;
+    } 
 }
 .fa-shopping-cart{
     font-size: 45px;
     padding: 15px 10px 0 0;
+    background:-webkit-linear-gradient(left,$color-primary 25%, $color-secondary 75%);
+        background-clip:text;
+        -webkit-background-clip:text;
+        color:transparent;
 }

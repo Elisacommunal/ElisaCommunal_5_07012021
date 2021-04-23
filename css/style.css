@@ -5,6 +5,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap");
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -9928,12 +9929,42 @@ h3 {
     border-color: #dee2e6;
   }
 }
+main {
+  margin-bottom: 100px;
+}
+
+.ml-auto {
+  margin-left: auto !important;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 .bg-dark {
   background-color: #000;
 }
 
+.white {
+  color: white;
+  font-size: 20px;
+}
+.white:hover {
+  background: -webkit-linear-gradient(left, #dd8109 20%, #8D42D6 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 .card {
   margin: 30px 5px;
+  height: 500px;
+}
+.card-img-top {
+  min-height: 158px;
+  height: auto;
+  object-position: center;
 }
 
 .titre {
@@ -9945,11 +9976,16 @@ h3 {
 .titre h1 {
   font-size: 55px;
   align-self: center;
+  font-family: "Finger Paint", cursive;
 }
 
 .fa-shopping-cart {
   font-size: 45px;
   padding: 15px 10px 0 0;
+  background: -webkit-linear-gradient(left, #dd8109 25%, #8D42D6 75%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 /*# sourceMappingURL=style.css.map */
