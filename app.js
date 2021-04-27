@@ -21,7 +21,7 @@ function displayProduct(product, id_container) {
                     <h5 class="card-title">${product.name}</h5>
                     <p class="card-text">${product.description}</p>
                     <p class="card-text">${product.price} €</p>
-                    <a href="#" class="btn btn-dark">Ajouter au panier</a>
+                    <a href="product.html?id=${product._id}" class="btn btn-dark">Ajouter au panier</a>
                     </div>
                 </div>`;
 
@@ -39,14 +39,12 @@ getData("5be1ed3f1c9d44000030b061")
 
 
 
-
     getData("5be1ef211c9d44000030b062")
     .then(data => {
         console.log(data);
         displayProduct(data, "cardProduct2");
     })
     .catch(error => console.error(error))
-
 
     
 
@@ -73,6 +71,8 @@ getData("5be1ed3f1c9d44000030b061")
         displayProduct(data, "cardProduct5");
     })
     .catch(error => console.error(error))
+
+    
 /* container.innerHTML += '<div class="card" style="width: 18rem;"></div>' ;
         container.innerHTML += `<img src=${product.imageUrl} class="card-img-top" alt="${product.name}"></img>`;
         container.innerHTML += '<div class="card-body"></div>';
