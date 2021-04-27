@@ -6106,7 +6106,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #343a40 !important;
+  background-color: #000 !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
@@ -9937,13 +9937,17 @@ main {
   margin-left: auto !important;
 }
 
+#camera-card {
+  margin-bottom: 20px;
+}
+
 .center {
   display: flex;
   justify-content: center;
 }
 
 .bg-dark {
-  background-color: #000;
+  background-color: #000 !important;
 }
 
 .white {
@@ -9951,15 +9955,15 @@ main {
   font-size: 20px;
 }
 .white:hover {
-  background: -webkit-linear-gradient(left, #dd8109 20%, #8D42D6 80%);
+  background: -webkit-linear-gradient(left, #E68A08 20%, #8F5BFE 80%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+  font-weight: bold;
 }
 
 .card {
   margin: 30px 5px;
-  height: 500px;
 }
 .card-img-top {
   min-height: 158px;
@@ -9979,13 +9983,19 @@ main {
   font-family: "Finger Paint", cursive;
 }
 
-.fa-shopping-cart {
-  font-size: 45px;
-  padding: 15px 10px 0 0;
-  background: -webkit-linear-gradient(left, #dd8109 25%, #8D42D6 75%);
+.gradation {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Finger Paint", cursive;
+  background: -webkit-linear-gradient(left, #E68A08 25%, #8F5BFE 75%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+}
+
+.fa-shopping-cart {
+  font-size: 45px !important;
+  padding: 15px 10px 0 0;
 }
 
 /*# sourceMappingURL=style.css.map */

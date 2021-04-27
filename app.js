@@ -20,7 +20,7 @@ function displayProduct(product, id_container) {
                     <div class="card-body">
                     <h5 class="card-title">${product.name}</h5>
                     <p class="card-text">${product.description}</p>
-                    <p class="card-text">${product.price} €</p>
+                    <p class="card-text">${product.price/100},00€</p>
                     <a href="product.html?id=${product._id}" class="btn btn-dark">Ajouter au panier</a>
                     </div>
                 </div>`;
