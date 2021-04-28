@@ -11,7 +11,7 @@ console.log(urlApiId)
 // FUNCTIONS
 function compte() {
     let quantite = document.getElementById("qte");
-    for (let nbr = 1; nbr <= 5; nbr++) {
+    for (let nbr = 1; nbr <= 10; nbr++) {
        let newQuantite = document.createElement("option");
        newQuantite.innerText += nbr;
        quantite.append(newQuantite);
@@ -43,7 +43,7 @@ fetch(urlApiId)
                             <div class="card-footer text-muted">
                                 <form class="offset-2 col-8 offset-2">
                                     <div class="form-group">
-                                        <label for="quantité">Choisissez une quantité (<em> Dans la limite de 5 appareils photos </em>) </label>
+                                        <label for="quantité">Choisissez une quantité</label>
                                         <select class="form-control" id="qte" name="quantité"></select>
                                     </div>
                                     <div class="form-group">
