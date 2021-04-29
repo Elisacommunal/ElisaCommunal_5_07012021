@@ -6,7 +6,7 @@ const searchParams = new URLSearchParams(window.location.search).get("id");
 const urlApiId = urlApi + searchParams;
 const cameraCard = document.querySelector("#camera-card");
 console.log(urlApiId)
-
+let btn = document.querySelector(".cart") 
 
 // FUNCTIONS
 function compte() {
@@ -56,9 +56,35 @@ fetch(urlApiId)
          cameraCard.innerHTML += cameraProduct;
          compte();
          optionLentille(data);
-      }))
-      .catch((err) => 
-      console.log("erreur :" + err)) ;
+         btn.addEventListener("click",()=>{
+            let choixCamera = {
+              camName : data.name,
+              camId   : data._id,
+              camImage: data.imageUrl,
+              camPrice: data.price/100,
+              camColor: document.getElementById("choix-lentille").value,
+              camQuantite :parseInt( document.getElementById("qte").value),
+              get totalPrice (){
+                    return this.camPrice * this.camQuantite;
+                }
+            };
+            if(typeof localStorage != "undefined"){
+                // on recupère la valeur dans le Web Storage
+              let cameraStore  = JSON.parse(localStorage.getItem("camInCart"));
+                    if (cameraStore === null || cameraStore === "undefined") {
+                        cameraStore = []; // on crée le tableau 
+                       } 
+                     if(cameraStore) {
+                        cameraStore.push(choixCamera); // si le tableau existe on push le choix
+                     } 
+                    localStorage.setItem("camInCart", JSON.stringify(cameraStore));
+                    alert(`Vous avez bien ajouté ${choixCamera.camQuantite} - ${data.name} au panier.`);
+                  } else {
+                    alert("Une erreur est survenue");
+                  }
+        });
+    })
+      .catch((err) => console.log("erreur :" + err) ));
 
 
 //UTILITIES

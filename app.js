@@ -18,7 +18,7 @@ function displayProduct(product, id_container) {
     let template = `<div class="card text-center">
                     <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
                     <div class="card-body">
-                    <h5 class="card-title">${product.name}</h5>
+                    <h2 class="card-title">${product.name}</h2>
                     <p class="card-text">${product.description}</p>
                     <p class="card-text">${product.price/100},00€</p>
                     <a href="product.html?id=${product._id}" class="btn btn-dark">Ajouter au panier</a>
