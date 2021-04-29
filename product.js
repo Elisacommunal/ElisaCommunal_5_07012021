@@ -62,7 +62,7 @@ fetch(urlApiId)
               camId   : data._id,
               camImage: data.imageUrl,
               camPrice: data.price/100,
-              camColor: document.getElementById("choix-lentille").value,
+              camLenses: document.getElementById("choix-lentille").value,
               camQuantite :parseInt( document.getElementById("qte").value),
               get totalPrice (){
                     return this.camPrice * this.camQuantite;
