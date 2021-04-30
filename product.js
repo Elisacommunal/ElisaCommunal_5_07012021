@@ -1,6 +1,4 @@
 // CONSTANTE
-
-
 const urlApi = "http://localhost:3000/api/cameras/";
 const searchParams = new URLSearchParams(window.location.search).get("id");
 const urlApiId = urlApi + searchParams;
@@ -17,7 +15,7 @@ function compte() {
        quantite.append(newQuantite);
      }
   };
-  // fonction pour afficher les options de couleurs.
+  // fonction pour afficher les options de lentilles
   function optionLentille(data) {
     let choixLentille = document.getElementById("choix-lentille")
     for (let i = 0; i < data.lenses.length; i++) {
@@ -56,6 +54,8 @@ fetch(urlApiId)
          cameraCard.innerHTML += cameraProduct;
          compte();
          optionLentille(data);
+
+
          btn.addEventListener("click",()=>{
             let choixCamera = {
               camName : data.name,
@@ -69,7 +69,7 @@ fetch(urlApiId)
                 }
             };
             if(typeof localStorage != "undefined"){
-                // on recupère la valeur dans le Web Storage
+                // on recupère la valeur dans le localStorage
               let cameraStore  = JSON.parse(localStorage.getItem("camInCart"));
                     if (cameraStore === null || cameraStore === "undefined") {
                         cameraStore = []; // on crée le tableau 
@@ -84,10 +84,10 @@ fetch(urlApiId)
                   }
         });
     })
-      .catch((err) => console.log("erreur :" + err) ));
+      .catch((err) => console.log("erreur :" + err)));
 
 
-//UTILITIES
+
 
         
 
