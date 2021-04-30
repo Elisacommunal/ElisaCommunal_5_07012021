@@ -89,7 +89,7 @@ const deleteCamera = (index)=>{
 
 
 // incrementation du calcul du prix total de la commande:
-const compteurPanierPrixTotal = () =>{
+/*const compteurPanierPrixTotal = () =>{
     let arrayComptPanier =[] ;
     let arrayPrixTotal =[];
     for (const camInStore of cameraStore) {
@@ -110,6 +110,6 @@ const compteurPanierPrixTotal = () =>{
         console.log(localStorage);  
 }}
 
-compteurPanierPrixTotal();
+compteurPanierPrixTotal();*/
 displayCamera();
 };
