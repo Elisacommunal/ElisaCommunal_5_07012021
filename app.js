@@ -30,12 +30,29 @@ container.innerHTML += template
 function setImageProduct(container, product){
     let image = container.querySelector( 'img' );
     image.src = product.imageUrl
+    console.log(image);
 }
 
-/*function setNameProduct(container, product){
-    let nameCard = container.querySelector( 'h2' );
-    nameCard = product.name
-}*/
+function setNameProduct(container, product){
+    let nameCard = container.querySelector( '.product-title' );
+    nameCard.innerHTML = product.name
+    console.log(nameCard);
+}
+function setDescriptProduct(container, product){
+    let descript = container.querySelector('.product-descript');
+    descript.innerHTML = product.description
+    console.log(descript);
+}
+function setPriceProduct(container, product){
+    let prix = container.querySelector('.product-price');
+    prix.innerHTML += product.price/100
+    console.log(prix);
+}
+function setLinkProduct(container, product){
+    let link = container.querySelector('.product-link');
+    link.href += `product.html?id=${product._id}`
+    console.log(link);
+}
 
 function displayProduct2( product, id_container){
     let containerProducts = document.getElementById(id_container);
@@ -43,8 +60,10 @@ function displayProduct2( product, id_container){
     let container = baseContainer.cloneNode(true);
 
     setImageProduct(container, product);
-    //setNameProduct(container, product);
-
+    setNameProduct(container, product);
+    setPriceProduct(container, product);
+    setDescriptProduct(container, product);
+    setLinkProduct(container, product);
 
     container.classList.remove('d-none')
     containerProducts.append(container)
