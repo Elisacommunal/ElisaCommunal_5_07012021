@@ -2,30 +2,12 @@
 // CONSTANTE
 
 
-
 // FUNCTIONS
 async function getData (parameter) {
     let url = "http://localhost:3000/api/cameras/" + parameter;
     let response = await fetch(url);
     return await response.json();
 }
-
-
-/*function displayProduct(product, id_container) {
-    let container = document.getElementById(id_container);
-
-    let template = `<div class="card text-center">
-                    <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
-                    <div class="card-body">
-                    <h2 class="card-title">${product.name}</h2>
-                    <p class="card-text">${product.description}</p>
-                    <p class="card-text">${product.price/100},00€</p>
-                    <a href="product.html?id=${product._id}" class="btn btn-dark">Ajouter au panier</a>
-                    </div>
-                </div>`;
-
-container.innerHTML += template 
-}*/
 
 function setImageProduct(container, product){
     let image = container.querySelector( 'img' );
@@ -38,25 +20,28 @@ function setNameProduct(container, product){
     nameCard.innerHTML = product.name
     console.log(nameCard);
 }
+
 function setDescriptProduct(container, product){
     let descript = container.querySelector('.product-descript');
     descript.innerHTML = product.description
     console.log(descript);
 }
+
 function setPriceProduct(container, product){
     let prix = container.querySelector('.product-price');
     prix.innerHTML += product.price/100
     console.log(prix);
 }
+
 function setLinkProduct(container, product){
     let link = container.querySelector('.product-link');
-    link.href += `product.html?id=${product._id}`
+    link.href += product._id
     console.log(link);
 }
 
-function displayProduct2( product, id_container){
+function displayProducts( product, id_container){
     let containerProducts = document.getElementById(id_container);
-    let baseContainer = document.querySelector('.container-product');
+    let baseContainer = document.querySelector('.container-products');
     let container = baseContainer.cloneNode(true);
 
     setImageProduct(container, product);
@@ -97,9 +82,7 @@ function getAlldata( placement ){
     placement.forEach(element => {
         getData(element.id)
         .then(product => {
-            //console.log(product);
-            // displayProduct(product, "cardProduct1");
-            displayProduct2( product, element.selector )
+            displayProducts( product, element.selector )
         })
         .catch(error => console.error(error)) 
         });
