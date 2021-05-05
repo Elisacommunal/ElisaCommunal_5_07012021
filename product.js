@@ -10,6 +10,20 @@ let btn = document.querySelector(".cart")
 let ici = document.getElementById('ici')
 // FUNCTIONS
 
+//fonction compteur
+
+function compteur() {
+  let quantity = parseInt( document.getElementById("qte").value);
+  if (quantity > 0) {
+    return quantity;
+  }else{
+    quantity = 1;
+    alert("Quantité non valide, 1 ajouté au panier par défault");
+  }
+  console.log(quantity);
+  //return quantity;
+  
+}
   // fonction pour afficher les options de lentilles
   
   function optionLentille(product) {
@@ -56,7 +70,7 @@ function displayProduct( product ){
   setNameProduct(container, product);
   setPriceProduct(container, product);
   setDescriptProduct(container, product);
-
+  optionLentille(product);
   
   container.classList.remove('d-none');
   containerProduct.append(container);
@@ -67,8 +81,8 @@ fetch(urlApiId)
     .then((response) => 
         response.json()
     .then((product) => {
-      displayProduct(product)
-      optionLentille(product);
+      displayProduct(product);
+      
         //console.log(product);
         /*let cameraProduct = "";
             cameraProduct += `<div class="card text-center col-10 offset-1">
@@ -98,11 +112,12 @@ fetch(urlApiId)
               camImage: product.imageUrl,
               camPrice: product.price/100,
               camLenses: document.getElementById("choix-lentille").value,
-              camQuantite :parseInt( document.getElementById("qte").value),
+              camQuantite : compteur(),
               get totalPrice (){
                     return this.camPrice * this.camQuantite;
                 }
             };
+            console.log(choixCamera);
             if(typeof localStorage != "undefined"){
                 // on recupère la valeur dans le localStorage
               let cameraStore  = JSON.parse(localStorage.getItem("camInCart"));
