@@ -21,7 +21,7 @@ function compteur() {
     alert("Quantité non valide, 1 ajouté au panier par défault");
   }
   console.log(quantity);
-  //return quantity;
+  return quantity;
   
 }
   // fonction pour afficher les options de lentilles
@@ -63,8 +63,8 @@ function setPriceProduct(container, product){
 
 function displayProduct( product ){
   let containerProduct = document.getElementById('ici');
-  let baseContainer = document.querySelector('.container-product');
-  let container = baseContainer.cloneNode(true);
+  let container = document.querySelector('.container-product');
+  
 
   setImageProduct(container, product);
   setNameProduct(container, product);
@@ -115,9 +115,9 @@ fetch(urlApiId)
               camQuantite : compteur(),
               get totalPrice (){
                     return this.camPrice * this.camQuantite;
-                }
-            };
-            console.log(choixCamera);
+                } 
+            };console.log(this.camQuantite);
+           
             if(typeof localStorage != "undefined"){
                 // on recupère la valeur dans le localStorage
               let cameraStore  = JSON.parse(localStorage.getItem("camInCart"));
