@@ -17,23 +17,79 @@ let cameraStore = getBackCamera();
 console.log(cameraStore)
 
 // si le panier est vide :
-if (cameraStore.length === 0 || cameraStore === null && getComputedStyle(validation).display == "block") {
+if (cameraStore.length === 0 || cameraStore === null) {
     validation.style.display =" none";
-    let panierVide = `<h1 class="offset-1 col-10 offset-1 text-center">Votre panier est vide !</h1>
-    <a href="index.html" class=" btn btn-dark"><span class="white" >Retour à l'accueil</span></a> `
+    let panierVide = document.getElementById("empty-cart")
     displayStore.innerHTML += panierVide;
     
 // s'il y a des produits dans le panier : 
 } else {
 const displayCamera = () => {
-    const camerasStore = cameraStore.map((cam , index) => {
-        return createCameraElement(cam, index);
+    const camerasStore = cameraStore.map((cam, index) => {
+        return displayCart (cam, index );
     });
     displayStore.innerHTML =" ";
     displayStore.append(...camerasStore);
 };
 // Création de l'élément de présentation de produit dans le panier
-const createCameraElement = (cam , index) =>{
+
+function setImageCart(container, cam){
+    let image = container.querySelector( '.camera-image' );
+    image.src = cam.camImage;
+    console.log(image);
+}
+function setNameCart(container, cam){
+    let name = container.querySelector( '.camera-name' );
+    name.innerHTML = cam.camName;
+    console.log(name);
+}
+function setLensesCart(container, cam){
+    let lenses = container.querySelector( '.camera-lenses' );
+    lenses.innerHTML = cam.camLenses;
+    console.log(lenses);
+}
+function setQtyCart(container, cam){
+    let quantity = container.querySelector( '.camera-quantity' );
+    quantity.innerHTML = cam.camQuantity;
+    console.log(quantity);
+}
+function setPriceCart(container, cam){
+    let price = container.querySelector( '.camera-price' );
+    price.innerHTML = cam.camPrice;
+    console.log(price);
+}
+function setTotalCart(container, cam){
+    let totalPriceCam = container.querySelector( '.camera-totalPrice' );
+    totalPriceCam.innerHTML = cam.totalPrice;
+    console.log(totalPriceCam);
+}
+function displayCart (cam, index ){
+    let cameraElement = document.querySelector('.container-cart');
+    let container = cameraElement.cloneNode(true);
+    let clone = document.getElementById("clone-template");
+
+// appel des functions de chaques elements  
+    setImageCart(container, cam);
+    setNameCart(container, cam);
+    setLensesCart(container, cam);
+    setQtyCart(container, cam);
+    setPriceCart(container, cam);
+    setTotalCart(container, cam);
+
+
+    container.classList.remove('d-none')
+    clone.append(container)
+
+    const btnDelete = container.querySelector('.deleteBtn');
+    btnDelete.addEventListener('click', ()=>{
+         deleteCamera(index);
+     });
+     return container;
+}
+    
+
+
+/* const createCameraElement = (cam , index) =>{
     const list = document.createElement('ul');
     list.setAttribute("class","ulProduct");
     list.innerHTML = `
@@ -69,13 +125,13 @@ const createCameraElement = (cam , index) =>{
                 </ul>
             </div> 
         </div>
-    </div>`;
-   const btnDelete = list.querySelector('.deleteBtn');
-   btnDelete.addEventListener('click', ()=>{
-        deleteCamera(index);
-    });
-    return list;
-};
+    </div>`; 
+     const btnDelete = container.querySelector('.deleteBtn');
+    btnDelete.addEventListener('click', ()=>{
+         deleteCamera(index);
+     });
+     return container;
+}; */
 
 
 // fonction deleteCamera qui sera appelé à l'interieur de l'évenement btnDelete pour suppr l'élément
@@ -112,4 +168,5 @@ const compteurPanierPrixTotal = () =>{
 
 compteurPanierPrixTotal();
 displayCamera();
+
 };

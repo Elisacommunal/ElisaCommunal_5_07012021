@@ -31,9 +31,50 @@
               <p><i class="fas fa-shopping-cart gradation"></i></p>
               <h1>Orinoco</h1>
           </div>
-          <div class="offset-3 col-6" id="displayCameraStore">
-              <div id="totalPrice"></div>
+          <div id="totalPrice"></div>
+          <div class="offset-1 col-10" id="displayCameraStore"></div>
+
+          <div id="empty-cart" class="d-none">
+                <h2 class="offset-1 col-10 offset-1 text-center" >Votre panier est vide !</h2>
+                <a href="index.html" class=" btn btn-dark"><span class="white" >Retour à l'accueil</span></a>
           </div>
+
+          <div class="d-none container-cart container-fluid card-cart">
+                <div class="col-12">
+                    <div>
+                        <ul class="list-unstyled">
+                            <li class="camera-name article-title"></li>
+                            <li><img src="" class="camera-image" ></li>
+                            <li><span class="libelle">Lentille</span></li>
+                            <li class="camera-lenses"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3"><span class="libelle">Quantité</span>
+                        <ul class="list-unstyled">
+                            <li class="camera-quantity"></li>
+                        </ul>
+                    </div>
+                    <div class="col-3"><span class="libelle">Prix unitaire</span>
+                        <ul class="list-unstyled">
+                            <li class="camera-price"></li>
+                        </ul>
+                    </div>
+                    <div class="col-3"><span class="libelle">Prix total</span>
+                        <ul class="list-unstyled">
+                            <li class="camera-totalPrice"></li>
+                        </ul>
+                    </div>
+                    <div class="col-3"><span class="libelle">Supprimer</span>
+                        <ul class="list-unstyled">
+                            <li><a class="deleteBtn btn"><i class="far fa-trash-alt icon"></i></a></li>
+                        </ul>
+                    </div> 
+                </div>
+            </div>
+           
+            <div id="clone-template"></div>
           <div>
               <a href="#" class="btn btn-dark" id="validate"><span class="white" > Validez votre commande </span></a>
           </div>

@@ -13,15 +13,15 @@ let ici = document.getElementById('ici')
 //fonction compteur
 
 function compteur() {
-  let quantity = parseInt( document.getElementById("qte").value);
-  if (quantity > 0) {
-    return quantity;
+  let qty = parseInt( document.getElementById("qte").value);
+  if (qty > 0) {
+    return qty;
   }else{
-    quantity = 1;
+    qty = 1;
     alert("Quantité non valide, 1 ajouté au panier par défault");
   }
-  console.log(quantity);
-  return quantity;
+  console.log(qty);
+  return qty;
   
 }
   // fonction pour afficher les options de lentilles
@@ -112,11 +112,11 @@ fetch(urlApiId)
               camImage: product.imageUrl,
               camPrice: product.price/100,
               camLenses: document.getElementById("choix-lentille").value,
-              camQuantite : compteur(),
+              camQuantity : compteur(),
               get totalPrice (){
-                    return this.camPrice * this.camQuantite;
+                    return this.camPrice * this.camQuantity;
                 } 
-            };console.log(this.camQuantite);
+            };console.log(choixCamera);
            
             if(typeof localStorage != "undefined"){
                 // on recupère la valeur dans le localStorage
@@ -128,7 +128,7 @@ fetch(urlApiId)
                         cameraStore.push(choixCamera); // si le tableau existe on push le choix
                      } 
                     localStorage.setItem("camInCart", JSON.stringify(cameraStore));
-                    alert(`Vous avez bien ajouté ${choixCamera.camQuantite} - ${product.name} au panier.`);
+                    alert(`Vous avez bien ajouté ${choixCamera.camQuantity} - ${product.name} au panier.`);
                   } else {
                     alert("Une erreur est survenue");
                   }
