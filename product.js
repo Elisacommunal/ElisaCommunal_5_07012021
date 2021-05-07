@@ -7,7 +7,6 @@ const cameraCard = document.querySelector("#camera-card");
 //console.log(searchParams);
 let btn = document.querySelector(".cart") 
 
-let ici = document.getElementById('ici')
 // FUNCTIONS
 
 //fonction compteur
