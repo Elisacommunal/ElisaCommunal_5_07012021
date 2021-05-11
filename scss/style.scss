@@ -16,7 +16,7 @@ main{
     display: flex;
     justify-content: center;
 }
-.bg-dark{
+.bg-black{
     background-color: #000 !important;
 }
 .padding{
@@ -93,4 +93,7 @@ main{
     padding: 15px;
     font-size: 20px !important;
     font-weight: bold;
+}
+.space{
+    padding: 10px 0;
 }
