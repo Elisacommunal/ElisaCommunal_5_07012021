@@ -7,6 +7,11 @@ main {
   margin-left: auto !important;
 }
 
+#totalPrice {
+  font-size: 24px !important;
+  font-weight: 600;
+}
+
 #camera-card {
   margin-bottom: 20px;
 }
@@ -104,6 +109,10 @@ main {
 
 .space {
   padding: 10px 0;
+}
+
+.space-left {
+  padding-left: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */

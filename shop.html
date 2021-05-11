@@ -32,7 +32,7 @@
               <p><i class="fas fa-shopping-cart gradation"></i></p>
               <h1>Orinoco</h1>
           </div>
-          <div id="totalPrice"></div>
+          <h2 id="totalPrice"></h2>
           <div class="offset-1 col-10" id="displayCameraStore"></div>
 
           <div id="empty-cart" class="d-none">
@@ -42,35 +42,29 @@
 
           <div class="d-none container-cart container-fluid card-cart">
                 <div class="col-12">
-                    <div>
-                        <ul class="list-unstyled">
-                            <li class="camera-name article-title"></li>
-                            <li><img src="" class="camera-image" ></li>
-                            <li><span class="libelle">Lentille</span></li>
-                            <li class="camera-lenses"></li>
-                        </ul>
-                    </div>
+                    <p class="camera-name article-title"></p>
+                    <img src="" class="camera-image" >
+                    <p><span class="libelle">Lentille</span></p>
+                    <p class="camera-lenses"></p>
                 </div>
                 <div class="row">
-                    <div class="col-3"><span class="libelle">Quantité</span>
-                        <ul class="list-unstyled">
-                            <li class="camera-quantity"></li>
-                        </ul>
+                    <div class="col-6 col-md-3"><span class="libelle">Quantité</span>
+                        <p class="camera-quantity"></p>
                     </div>
-                    <div class="col-3"><span class="libelle">Prix unitaire</span>
-                        <ul class="list-unstyled">
-                            <li class="camera-price"></li>
-                        </ul>
+                    <div class="col-6 col-md-3"><span class="libelle">Prix unitaire</span>
+                        <div class="row center">
+                            <p class="camera-price"></p>
+                            <p class="space-left"> €</p>
+                        </div>
                     </div>
-                    <div class="col-3"><span class="libelle">Prix total</span>
-                        <ul class="list-unstyled">
-                            <li class="camera-totalPrice"></li>
-                        </ul>
+                    <div class="col-6 col-md-3"><span class="libelle">Prix total</span>
+                        <div class="row center">
+                            <p class="camera-totalPrice"></p>
+                            <p class="space-left"> €</p>
+                        </div>
                     </div>
-                    <div class="col-3"><span class="libelle">Supprimer</span>
-                        <ul class="list-unstyled">
-                            <li><a class="deleteBtn btn"><i class="far fa-trash-alt icon"></i></a></li>
-                        </ul>
+                    <div class="col-6 col-md-3"><span class="libelle">Supprimer</span>
+                        <p><a class="deleteBtn btn"><i class="far fa-trash-alt icon"></i></a></p>
                     </div> 
                 </div>
             </div>
@@ -78,29 +72,29 @@
             <div>
                 <h2>Formulaire</h2>
                   <form class="row">
-                    <div class="col-md-6 space">
+                    <div class="col-12 col-md-6 space">
                         <input type="text" class="form-control border-dark" placeholder="Prénom" aria-label="Prénom" required>
                     </div>
-                    <div class="col-md-6 space">
+                    <div class=" col-12 col-md-6 space">
                         <input type="text" class="form-control border-dark" placeholder="Nom" aria-label="Nom" required>
                     </div>
-                    <div class="col-md-12 space">
-                      <input type="email" class="form-control border-dark" id="inputEmail4" placeholder="Email" required>
+                    <div class="col-12 space">
+                      <input type="email" class="form-control border-dark" id="inputEmail4" placeholder="Email" aria-label="Email" required>
                     </div>
                     <div class="col-12 space">
-                      <input type="text" class="form-control border-dark" id="inputAddress" placeholder="Adresse" required>
+                      <input type="text" class="form-control border-dark" id="inputAddress" placeholder="Adresse" aria-label="Adresse" required>
                     </div>
                     <div class="col-12 space">
-                      <input type="text" class="form-control border-dark" id="inputAddress2" placeholder="Appartement, étage, batiment ...">
+                      <input type="text" class="form-control border-dark" id="inputAddress2" placeholder="Appartement, étage, batiment ..." aria-label="Appartement, étage, batiment ...">
                     </div>
-                    <div class="col-md-5 space">
-                      <input type="text" class="form-control border-dark" id="inputCity" placeholder="Ville" required>
+                    <div class="col-12 col-md-5 space">
+                      <input type="text" class="form-control border-dark" id="inputCity" placeholder="Ville" aria-label="Ville" required>
                     </div>
-                    <div class="col-md-4 space">
-                        <input type="text" class="form-control border-dark" id="inputCountry" placeholder="Pays" required>
+                    <div class="col-12 col-md-4 space">
+                        <input type="text" class="form-control border-dark" id="inputCountry" placeholder="Pays" aria-label="Pays" required>
                       </div>
-                    <div class="col-md-3 space">
-                      <input type="text" class="form-control border-dark" id="inputZip" placeholder="Code Postal" required>
+                    <div class="col-12 col-md-3 space">
+                      <input type="text" class="form-control border-dark" id="inputZip" placeholder="Code Postal" aria-label="Code postal" required>
                     </div>
                     <div class="col-12 space">
                       <div class="form-check">
