@@ -101,7 +101,7 @@ function displayProduct(product) {
 }
 
 
-// FONCTIONS PAGE PRODUCT
+// FONCTIONS PAGE SHOP
 
 // fonction qui observe si le panier est vide ou non
 function listenerCart() {
@@ -128,6 +128,7 @@ function getBackCamera() {
     }
     return cameraStore;
 }
+let cameraStore = getBackCamera();
 
 // Création de l'élément de présentation de produit dans le panier
 function setImageCart(container, cam) {
@@ -226,7 +227,81 @@ function totalPriceCartMeter() {
     } else {
         let totalPriceCart = arrayTotalPrice.reduce((accumulator, currentValue) => accumulator + currentValue);
         totalPriceOrder.innerHTML = `PRIX TOTAL: ${totalPriceCart}€`;
-        localStorage.setItem("TotalPrice", totalPriceCart);
+        localStorage.setItem("totalPrice", totalPriceCart);
         console.log(localStorage);
     }
 }
+
+function formManagement(){
+
+    let check = document.getElementById('gridCheck').value;
+    let formChecked = document.getElementById('formChecked').checkValidity();
+
+
+    if (formChecked == false) {
+
+        alert('Merci de bien vouloir remplir tout les champs requis afin de valider votre commande');
+
+    }else{
+
+        let contact = {
+            firstName: document.getElementById('inputFirstName').value,
+            lastName: document.getElementById('inputLastName').value,
+            address: document.getElementById('inputAddress').value,
+            city: document.getElementById('inputCity').value,
+            email: document.getElementById('inputEmail').value,
+        };
+        console.log(contact);
+
+        let products = [];
+        console.log(cameraStore);
+        for (let camreraInstore of cameraStore){
+            let productsId = camreraInstore.camId;
+            products.push(productsId);
+            console.log(products);
+        }
+
+        let order = { contact, products };
+        console.log(order);
+
+        let sendData = fetch("http://localhost:3000/api/cameras/order", {
+            method: 'POST',
+            body: JSON.stringify(order),
+            headers:{
+                'Content-Type' : 'application/json',
+            }
+        })
+        sendData.then( async response =>{
+            try{
+                console.log(response);
+                let confirmation = await response.json();
+                console.log(confirmation);
+                let confirmationId = confirmation.orderId;
+                console.log(confirmationId);
+
+                let result = {
+                    contact: contact,
+                    confirmationId: confirmationId,
+                }
+                console.log(result);
+
+                if(typeof localStorage != "undefined"){
+                    localStorage.setItem("confirm", JSON.stringify(result));
+                    localStorage.setItem("camInCart", JSON.stringify([]));
+                
+                    window.location.href = "confirmation.html";
+
+                }else{
+                    alert("LocalStorage n'est pas définit")
+                }
+            } catch(error) {
+                console.log(error);
+                alert("Une erreur est survenue, veuillez retenter plus tard")
+            }
+        })
+    }
+}
+
+
+// PAGE CONFIRMATION
+
