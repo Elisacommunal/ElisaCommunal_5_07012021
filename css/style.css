@@ -3,6 +3,21 @@ main {
   margin-bottom: 100px;
 }
 
+.main-confim {
+  margin-bottom: 100px;
+  min-height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.footer-confirm {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-top: 50px;
+  height: 50px;
+}
+
 .ml-auto {
   margin-left: auto !important;
 }
@@ -49,16 +64,20 @@ main {
   object-position: center;
 }
 
-.titre {
+.title {
   display: flex;
   align-items: center;
   justify-content: center !important;
   margin: 20px;
 }
-.titre h1 {
+.title h1 {
   font-size: 55px;
   align-self: center;
   font-family: "Finger Paint", cursive;
+}
+.title__name {
+  font-size: 28px;
+  font-weight: 600;
 }
 
 .gradation {
@@ -71,7 +90,7 @@ main {
   color: transparent;
 }
 
-.fa-shopping-cart {
+.orinoco {
   font-size: 45px !important;
   padding: 15px 10px 0 0;
 }
