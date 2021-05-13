@@ -185,9 +185,14 @@ function displayCart(cam, index) {
     clone.append(container)
 
     const btnDelete = container.querySelector('.deleteBtn');
-    btnDelete.addEventListener('click', () => {
+
+        btnDelete.addEventListener('click', () => {
+    if (window.confirm(`Voulez-vous vraiment supprimer cet article de votre panier ?`)) {
         deleteCamera(index);
-    });
+    } else {
+        window.location.href = "shop.html";
+    };   
+});
     return container;
 }
 
@@ -211,18 +216,15 @@ function deleteCamera(index) {
 
 // incrementation du calcul du prix total de la commande:
 function totalPriceCartMeter() {
-    let arrayCartMeter = [];
+
     let arrayTotalPrice = [];
     for (const camInStore of cameraStore) {
-        let itemQty = camInStore.camQuantity;
-        arrayCartMeter.push(itemQty);
-        console.log(arrayCartMeter);
         let priceProduct = camInStore.totalPrice;
         arrayTotalPrice.push(priceProduct);
     }
     console.log(arrayTotalPrice);
 
-    if (arrayCartMeter.length === 0) {
+    if (arrayTotalPrice.length === 0) {
         location.assign('shop.html');
     } else {
         let totalPriceCart = arrayTotalPrice.reduce((accumulator, currentValue) => accumulator + currentValue);
@@ -305,3 +307,24 @@ function formManagement(){
 
 // PAGE CONFIRMATION
 
+
+
+// Fonction qui ajoute un compte dans le panier
+
+
+function cameraNumber(){
+    //recuperation article dans localstorage
+    const cameraStore = JSON.parse(localStorage.getItem("camInCart"));
+    //récupération de l'id où va être injecté counter
+    const cartCamera = document.getElementById("cart_camera");
+
+    if (cameraStore){
+        // fonction qui compte le nombre d'articles du panier
+        let count = cameraStore.reduce((sum, item) => sum += item.camQuantity, 0);
+        //injection du texte dans l'id
+        cartCamera.innerHTML += count;
+    }
+};
+cameraNumber();
+
+//<span class="d-sm-block bg-dark text-light px-2 rounded-circle">${count}</span>

@@ -134,4 +134,12 @@ main {
   padding-left: 5px;
 }
 
+.count {
+  width: 10px;
+  height: 10px;
+  color: white;
+  font-family: "Finger Paint", cursive;
+  font-size: 22px;
+}
+
 /*# sourceMappingURL=style.css.map */

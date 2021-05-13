@@ -37,6 +37,7 @@ fetch(urlApiId)
                      } 
                     localStorage.setItem("camInCart", JSON.stringify(cameraStore));
                     alert(`Vous avez bien ajouté ${cameraChoice.camQuantity} - ${product.name} au panier.`);
+                    window.location.href= "shop.html"
                   } else {
                     alert("Une erreur est survenue");
                   }
