@@ -1,7 +1,4 @@
-cameraStore.forEach( element => {
-    setNameCart( cam )
-    console.log(element.camName)
-} )
+
 
 
 
@@ -22,7 +19,7 @@ function getBackCamera() {
     }
     return cameraStore;
 }
-let cameraStore = getBackCamera();
+var cameraStore = getBackCamera();
 
 
 
@@ -60,7 +57,37 @@ function emptyCarts() {
 
 
 
+
+function test (cameraStore){
+    cameraStore.forEach( product  => {
+        setImageCart(container, product.camImage);
+        setNameCart(container, product.camName);
+        setLensesCart(container, product.camLenses);
+        setQtyCart(container, product.camQuantity);
+        setPriceCart(container, product.camPrice);
+        setTotalCart(container, product.totalPrice);
+    })};
+
+
+
 // Création de l'élément de présentation de produit dans le panier
+// MENTOR
+function setGenerique(container, camElement, selector) {
+    let element = container.querySelector(selector);
+    if( selector.includes("image") ){
+        element.src = camElement;
+        element.alt = ss
+    } else {
+        element.innerHTML = camElement;
+    }
+    console.log(element);
+}
+
+// UTILISATION
+setGenerique( container, cam.camImage, '.camera-image' )
+setGenerique( container, cam.camName, '.camera-image' )
+
+// MENTOR FIN
 
 function setImageCart(container, cam) {
     let image = container.querySelector('.camera-image');
@@ -110,17 +137,9 @@ function displayCart(cam, index) {
     if(cameraStore.length === 0 || cameraStore === null) {
         return emptyCarts()
     } else {
-        function Test (cameraStore){
-        cameraStore.forEach( product  => {
-            setImageCart(container, product.camImage);
-            setNameCart(container, product.camName);
-            setLensesCart(container, product.camLenses);
-            setQtyCart(container, product.camQuantity);
-            setPriceCart(container, product.camPrice);
-            setTotalCart(container, product.totalPrice);
-        })};
-
-    Test(cameraStore)
+        
+    test(cameraStore)
+  
     container.classList.remove('d-none')
     clone.append(container)
             

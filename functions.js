@@ -15,7 +15,7 @@ function meter() {
 
 
 // fonction pour initialisé les cardProducts
-function setImageProduct(container, product) {
+/* function setImageProduct(container, product) {
     let image = container.querySelector('.product-image');
     image.src = product.imageUrl
     image.alt = product.name
@@ -36,11 +36,23 @@ function setPriceProduct(container, product) {
     let prix = container.querySelector('.product-price');
     prix.innerHTML += product.price / 100
 }
-
+ */
 function setLinkProduct(container, product) {
     let link = container.querySelector('.product-link');
     link.href += product._id
 }
+
+function setGeneral(container, camElement, selector) {
+    let element = container.querySelector(selector);
+    if( selector.includes("image") ){
+        element.src = camElement;
+        element.alt = camElement;
+    } else {
+        element.innerHTML = camElement;
+    }
+    console.log(element);
+}
+
 
 
 // fonction pour faire la mise en page des card index.html
@@ -49,11 +61,13 @@ function displayProducts(product, id_container) {
     let baseContainer = document.querySelector('.container-products');
     let container = baseContainer.cloneNode(true);
 
-    setImageProduct(container, product);
-    setNameProduct(container, product);
-    setPriceProduct(container, product);
-    setDescriptProduct(container, product);
-    setLinkProduct(container, product);
+
+    setGeneral( container, product.imageUrl, '.product-image' ) 
+    setGeneral( container, product.name, '.product-title' ) 
+    setGeneral( container, product.description, '.product-descript' ) 
+    setGeneral( container, product.price / 100, '.product-price' ) 
+    setLinkProduct(container, product); 
+    
 
     container.classList.remove('d-none')
     containerProducts.append(container)
@@ -91,11 +105,12 @@ function displayProduct(product) {
     let container = document.querySelector('.container-product');
 
 
-    setImageProduct(container, product);
-    setNameProduct(container, product);
-    setPriceProduct(container, product);
-    setDescriptProduct(container, product);
+    setGeneral( container, product.imageUrl, '.product-image' ) 
+    setGeneral( container, product.name, '.product-title' ) 
+    setGeneral( container, product.price / 100, '.product-price' ) 
+    setGeneral( container, product.description, '.product-descript' ) 
     lensesOption(product);
+
 
     container.classList.remove('d-none');
     containerProduct.append(container);
@@ -133,56 +148,21 @@ function getBackCamera() {
 let cameraStore = getBackCamera();
 
 // Création de l'élément de présentation de produit dans le panier
-function setImageCart(container, cam) {
-    let image = container.querySelector('.camera-image');
-    image.src = cam.camImage;
-    image.alt = cam.camName;
-    console.log(image);
-}
-
-function setNameCart(container, cam) {
-    let name = container.querySelector('.camera-name');
-    name.innerHTML = cam.camName;
-    console.log(name);
-}
-
-function setLensesCart(container, cam) {
-    let lenses = container.querySelector('.camera-lenses');
-    lenses.innerHTML = cam.camLenses;
-    console.log(lenses);
-}
-
-function setQtyCart(container, cam) {
-    let quantity = container.querySelector('.camera-quantity');
-    quantity.innerHTML = cam.camQuantity;
-    console.log(quantity);
-}
-
-function setPriceCart(container, cam) {
-    let price = container.querySelector('.camera-price');
-    price.innerHTML = cam.camPrice;
-    console.log(price);
-}
-
-function setTotalCart(container, cam) {
-    let totalPriceCam = container.querySelector('.camera-totalPrice');
-    totalPriceCam.innerHTML = cam.totalPrice;
-    console.log(totalPriceCam);
-}
 
 // fonction pour faire la mise en page des card shop.html
 function displayCart(cam, index) {
     let cameraElement = document.querySelector('.container-cart');
     let container = cameraElement.cloneNode(true);
     let clone = document.getElementById("clone-template");
-    // appel des functions de chaques elements  
-    setImageCart(container, cam);
-    setNameCart(container, cam);
-    setLensesCart(container, cam);
-    setQtyCart(container, cam);
-    setPriceCart(container, cam);
-    setTotalCart(container, cam);
 
+    // appel de chaques elements avec la fonction setGeneral 
+    setGeneral(container, cam.camImage, '.camera-image')
+    setGeneral(container, cam.camName, '.camera-name')
+    setGeneral(container, cam.camLenses, '.camera-lenses')
+    setGeneral(container, cam.camQuantity, '.camera-quantity')
+    setGeneral(container, cam.camPrice, '.camera-price')
+    setGeneral(container, cam.totalPrice, '.camera-totalPrice')
+    
 
     container.classList.remove('d-none')
     clone.append(container)
@@ -331,4 +311,35 @@ function cameraNumber(){
 };
 cameraNumber();
 
-//<span class="d-sm-block bg-dark text-light px-2 rounded-circle">${count}</span>
+/* let monarray = [
+    "image",
+    "titre",
+    "prix",
+]
+
+let monarray2 = [
+    "image",
+    "titre",
+    "prix",
+]
+
+let monarray3 = [
+    "image",
+    "titre",
+    "prix",
+]
+
+let mesproduits = [
+    monarray,
+    monarray2,
+    monarray3
+]
+
+
+setImageCart(mesprroduits[0][0])
+
+
+mesProduits.foreach( monproduit => {
+    setImageCart( monProduit[0] )
+    setTitleCart( monProduit[0] )
+} ) */
