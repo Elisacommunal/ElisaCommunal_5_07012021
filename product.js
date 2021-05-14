@@ -36,8 +36,11 @@ fetch(urlApiId)
                         cameraStore.push(cameraChoice); // si le tableau existe on push le choix
                      } 
                     localStorage.setItem("camInCart", JSON.stringify(cameraStore));
-                    alert(`Vous avez bien ajouté ${cameraChoice.camQuantity} - ${product.name} au panier.`);
-                    window.location.href= "shop.html"
+                          if (window.confirm(`Vous avez bien ajouté ${cameraChoice.camQuantity} - ${product.name} au panier. Souhaitez-vous continuer vos achat ?`)) {
+                            window.location.href = "index.html";
+                        } else {
+                            window.location.href = "shop.html";
+                        };   
                   } else {
                     alert("Une erreur est survenue");
                   }

@@ -18,6 +18,8 @@ function meter() {
 function setImageProduct(container, product) {
     let image = container.querySelector('.product-image');
     image.src = product.imageUrl
+    image.alt = product.name
+    console.log(image.alt);
 }
 
 function setNameProduct(container, product) {
@@ -134,6 +136,7 @@ let cameraStore = getBackCamera();
 function setImageCart(container, cam) {
     let image = container.querySelector('.camera-image');
     image.src = cam.camImage;
+    image.alt = cam.camName;
     console.log(image);
 }
 
@@ -189,6 +192,7 @@ function displayCart(cam, index) {
         btnDelete.addEventListener('click', () => {
     if (window.confirm(`Voulez-vous vraiment supprimer cet article de votre panier ?`)) {
         deleteCamera(index);
+        window.location.href = "shop.html";
     } else {
         window.location.href = "shop.html";
     };   
